@@ -1,15 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform-root
+  name: namespaces
   namespace: argocd # Namespace where the Argo CD Application resource lives
-  finalizers:
-    # The default behaviour is foreground cascading deletion
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default # The Argo CD Project this application belongs to
   source:
-    repoURL: https://github.com/YadavEshNithin/eks-argocd.git # URL of the Git repository
+    repoURL: https://github.com/daws-84s/eks-argocd.git # URL of the Git repository
     targetRevision: main # The specific branch, tag, or commit to sync from
     path: namespaces # The path within the repository where the application manifests are located
   destination:
